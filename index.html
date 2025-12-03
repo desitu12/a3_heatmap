@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Road Safety Heatmap</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="header-box">
+      <div>
+        <h1>Interactive heatmap of UK Road Accidents</h1>
+        <p class="subhead">Hover for exact counts, filter by severity, road surface condition, and road type. </p>
+      </div>
+    </header>
+
+    <section class="controls">
+      <div class="control-group">
+        <label for="daySelect">Day of Week</label>
+        <select id="daySelect" multiple size="8">
+          <option value="__all__">All Days</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+		      <option value="Friday">Friday</option>
+		      <option value="Saturday">Saturday</option>
+		      <option value="Sunday">Sunday</option>
+        </select>
+      </div>
+
+	    <div class="control-group">
+		    <label for="hourSelect">Hour</label>
+		    <select id="hourSelect" multiple size="8">
+          <option value="__all__">All Hours</option>
+          <option value="00">00</option>
+          <option value="01">01</option>
+          <option value="02">02</option>
+          <option value="03">03</option>
+          <option value="04">04</option>
+          <option value="05">05</option>
+          <option value="06">06</option>
+          <option value="07">07</option>
+          <option value="08">08</option>
+          <option value="09">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20</option>
+          <option value="21">21</option>
+          <option value="22">22</option>
+          <option value="23">23</option>
+		    </select>
+	    </div>
+
+	    <div class="control-group">
+      <label for="severityFilter">Severity</label>
+        <select id="severityFilter">
+          <option value="__all__">All severities</option>
+          <option value="Slight">Slight</option>
+          <option value="Serious">Serious</option>
+          <option value="Fatal">Fatal</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+      <label for="seasonFilter">Season</label>
+        <select id="seasonFilter">
+          <option value="__all__">All Seasons</option>
+          <option value="Winter">Winter</option>
+          <option value="Spring">Spring</option>
+          <option value="Fall">Fall</option>
+          <option value="Summer">Summer</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="viz-panel">
+      <div class="responsive-svg-container">
+        <svg id="heatmap" role="img" aria-label="Accident heatmap"></svg>
+      </div>
+    </section>
+  </main>
+
+  <div id="tooltip" class="tooltip" aria-hidden="true"></div>
+  <script src="./heatmap.js"></script>
+</body>
+</html>
